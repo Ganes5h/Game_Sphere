@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import logo from "./logo.svg";
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SnakeGame from "./components/Snake/Snake";
+import TicTac from "./components/Tic_tac_toe/Tic";
+import Flappy from "./components/Flappy/Flappy";
+import Dice from "./components/Dice/Dice";
+import Test from "./Test";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route path="/" element={<SnakeGame />}></Route>
+          <Route path="/tic" element={<TicTac />}></Route>
+          <Route path="/flappy" element={<Flappy />}></Route>
+          <Route path="/dice" element={<Dice />}></Route>
+          <Route path="/test" element={<Test />}></Route>
+        </Routes>
+      </Router>
+    </>
   );
 }
 
