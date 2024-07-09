@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Bird from "./Bird";
 import Obstacle from "./Obstacle";
 import Swal from "sweetalert2";
@@ -14,11 +15,13 @@ const App = () => {
     { left: 1100, topHeight: 150, bottomHeight: 250 },
     { left: 1400, topHeight: 180, bottomHeight: 220 },
   ]); // Initial three obstacles
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(0); // Initialize score state
   const gravity = 0.5;
   const jump = -5; // Reduced jump height
   const minimumGap = 150; // Minimum gap between obstacles
   const [gameOver, setGameOver] = useState(false);
+
+  const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -53,6 +56,12 @@ const App = () => {
             left: obstacle.left - 5,
           }))
         );
+
+        // Check for scoring conditions
+        if (obstacles[0].left < 60 && obstacles[0].left > 40) {
+          // Assuming bird passes through the obstacle
+          setScore((prevScore) => prevScore + 1); // Increment score
+        }
 
         if (obstacles[0].left < -60) {
           // Remove the passed obstacle
@@ -91,7 +100,7 @@ const App = () => {
               if (result.isConfirmed) {
                 restartGame();
               } else {
-                window.location.reload(); // Reload the page to quit
+                navigate("/"); // Navigate to home page on quit
               }
             });
           }, 100); // Adjust delay time as needed
@@ -102,7 +111,7 @@ const App = () => {
         clearInterval(gameLoop);
       };
     }
-  }, [birdY, birdVelocity, obstacles, score, gameOver]);
+  }, [birdY, birdVelocity, obstacles, score, gameOver, navigate]);
 
   const restartGame = () => {
     setBirdY(250);
@@ -112,12 +121,13 @@ const App = () => {
       { left: 1100, topHeight: 150, bottomHeight: 250 },
       { left: 1400, topHeight: 180, bottomHeight: 220 },
     ]); // Reset to initial three obstacles
-    setScore(0);
+    setScore(0); // Reset score
     setGameOver(false);
   };
 
   return (
     <div
+      className="flappy"
       style={{
         display: "flex",
         alignItems: "center",
@@ -153,7 +163,7 @@ const App = () => {
             color: "white",
           }}
         >
-          Score: {score}
+          Score: {score} {/* Render the updated score */}
         </div>
       </div>
     </div>

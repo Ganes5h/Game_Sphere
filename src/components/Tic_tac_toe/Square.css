@@ -43,10 +43,10 @@
     box-sizing: border-box;
 }
 
-body{
+/* body{
     /* background: #222; */
-    font-family: consolas;
-}
+    /* font-family: consolas;
+} */ 
 
 .tic-tac-toe {
     width: fit-content;

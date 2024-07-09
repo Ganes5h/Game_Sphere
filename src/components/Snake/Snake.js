@@ -1,6 +1,7 @@
 import React from "react";
 import "./SnakeGame.css";
 import GameOver from "./GameOver.js";
+import { Typography } from "@mui/material";
 
 class SnakeGame extends React.Component {
   constructor(props) {
@@ -370,42 +371,55 @@ class SnakeGame extends React.Component {
     }
 
     return (
-      <div
-        id="GameBoard"
-        style={{
-          width: this.state.width,
-          height: this.state.height,
-          borderWidth: this.state.width / 50,
-        }}
-      >
-        {this.state.snake.map((snakePart, index) => {
-          return (
-            <div
-              key={index}
-              className="Block"
-              style={{
-                width: this.state.blockWidth,
-                height: this.state.blockHeight,
-                left: snakePart.Xpos,
-                top: snakePart.Ypos,
-                background: this.state.snakeColor,
-              }}
-            />
-          );
-        })}
+      <div className="snake">
+        <Typography variant="h3" style={{ color: "white", marginTop: "30px" }}>
+          Snake Game
+        </Typography>
+        {/* <div className="tic-tac-toe">
+          <h1> SNAKE GAME </h1>
+        </div> */}
         <div
-          className="Block"
+          id="GameBoard"
+          // className="Tictac"
           style={{
-            width: this.state.blockWidth,
-            height: this.state.blockHeight,
-            left: this.state.apple.Xpos,
-            top: this.state.apple.Ypos,
-            background: this.state.appleColor,
+            backgroundColor: "white",
+            width: this.state.width,
+            height: this.state.height,
+            borderWidth: this.state.width / 50,
           }}
-        />
-        <div id="Score" style={{ fontSize: this.state.width / 20 }}>
-          HIGH-SCORE: {this.state.highScore}&ensp;&ensp;&ensp;&ensp;SCORE:{" "}
-          {this.state.score}
+        >
+          {this.state.snake.map((snakePart, index) => {
+            return (
+              <div
+                key={index}
+                className="Block"
+                style={{
+                  width: this.state.blockWidth,
+                  height: this.state.blockHeight,
+                  left: snakePart.Xpos,
+                  top: snakePart.Ypos,
+                  background: this.state.snakeColor,
+                }}
+              />
+            );
+          })}
+          <div
+            className="Block"
+            style={{
+              width: this.state.blockWidth,
+              height: this.state.blockHeight,
+              left: this.state.apple.Xpos,
+              top: this.state.apple.Ypos,
+              background: this.state.appleColor,
+            }}
+          />
+          <div
+            id="Score"
+            style={{ color: "white", fontSize: this.state.width / 20 }}
+          >
+            HIGH-SCORE: {this.state.highScore}&ensp;&ensp;&ensp;&ensp;SCORE:{" "}
+            {this.state.score}
+          </div>
         </div>
       </div>
     );

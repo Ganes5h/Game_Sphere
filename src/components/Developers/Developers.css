@@ -1,0 +1,146 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+.footer {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    background-color: #efefef;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    text-align: center;
+}
+@media only screen and (max-width: 600px) {
+.footer{
+display: none;
+}
+}
+.main-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    /* flex-direction: column; */
+    /* height: 60vh; */
+}
+
+.nav-bar {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+buttons {
+    --primary-color: #645bff;
+    --secondary-color: #fff;
+    --hover-color: #111;
+    --arrow-width: 10px;
+    --arrow-stroke: 2px;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 20px;
+    color: var(--secondary-color);
+    padding: 1em 1.8em;
+    background: var(--primary-color);
+    display: flex;
+    transition: 0.2s background;
+    align-items: center;
+    gap: 0.6em;
+    font-weight: bold;
+}
+
+buttons .arrow-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+buttons .arrow {
+    margin-top: 1px;
+    width: var(--arrow-width);
+    background: var(--primary-color);
+    height: var(--arrow-stroke);
+    position: relative;
+    transition: 0.2s;
+}
+
+buttons .arrow::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    border: solid var(--secondary-color);
+    border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+    display: inline-block;
+    top: -3px;
+    right: 3px;
+    transition: 0.2s;
+    padding: 3px;
+    transform: rotate(-45deg);
+}
+
+buttons:hover {
+    background-color: var(--hover-color);
+}
+
+buttons:hover .arrow {
+    background: var(--secondary-color);
+}
+
+buttons:hover .arrow:before {
+    right: 0;
+}
+
+.main-head {
+    text-align: center;
+}
+
+.logo {
+    height: 100%;
+}
+.card,h2{
+    text-align: center;
+}
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 5px;
+    margin: 10px;
+    /* width: 200px; */
+    text-align: center;
+}
+
+
+
+.card h2 {
+    margin: 15px 0;
+}
